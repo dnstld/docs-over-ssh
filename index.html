@@ -38,7 +38,6 @@
       line-height: 1.6;
     }
 
-    /* HERO */
     .hero {
       text-align: center;
       margin-bottom: 80px;
@@ -50,11 +49,10 @@
     }
 
     .hero p {
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
     }
 
-    /* TERMINAL HERO */
     .terminal-hero {
       background: black;
       border: 1px solid var(--border);
@@ -86,12 +84,10 @@
       color: var(--accent);
     }
 
-    /* SECTION */
     .section {
       margin-bottom: 70px;
     }
 
-    /* CARD */
     .card {
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -140,7 +136,6 @@
       padding-left: 18px;
     }
 
-    /* CTA */
     .cta {
       margin-top: 40px;
       padding: 30px;
@@ -150,7 +145,6 @@
       background: linear-gradient(180deg, #020617, #0f172a);
     }
 
-    /* FOOTER */
     .footer {
       margin-top: 60px;
       text-align: center;
@@ -166,9 +160,12 @@
 
   <!-- HERO -->
   <div class="hero">
-    <h1>Documentation over SSH</h1>
+    <h1>Docs over SSH</h1>
     <p>
-      A new way to explore developer documentation — directly from your terminal.
+      A curated collection of tools, experiments, and ideas where documentation is accessed directly through SSH instead of the browser.
+    </p>
+    <p style="margin-top: 10px;">
+      No browser. No dashboards. Just SSH, files, and terminal-native workflows.
     </p>
 
     <div class="terminal-hero">
@@ -183,20 +180,27 @@
 
   <!-- WHAT -->
   <div class="section">
-    <h2>What is this?</h2>
+    <h2>What is Docs over SSH?</h2>
     <p>
-      Some platforms expose their documentation through SSH. Instead of opening a browser,
-      you connect via your terminal and navigate docs interactively.
+      Docs over SSH is an emerging pattern where documentation is exposed as a navigable filesystem over SSH instead of a traditional web interface.
+    </p>
+    <p>
+      Instead of browsing pages, you connect via your terminal and explore documentation using familiar commands like <code>ls</code>, <code>cat</code>, and <code>grep</code>.
+    </p>
+    <p>
+      It turns documentation into something closer to a codebase — terminal-native, scriptable, and AI-agent friendly.
     </p>
   </div>
 
   <!-- LIST -->
   <div class="section">
-    <h2>Available documentation</h2>
+    <h2>Notable implementations</h2>
 
     <div class="card">
       <h3>Supabase</h3>
-      <p>Interactive documentation accessible over SSH.</p>
+      <p>
+        A public SSH-based documentation interface that lets you explore Supabase docs like a filesystem.
+      </p>
 
       <div class="cmd">
         <span id="cmd1">ssh supabase.com</span>
@@ -205,7 +209,7 @@
 
       <div style="margin-top: 10px;">
         <a href="https://supabase.com/blog/supabase-docs-over-ssh" target="_blank">
-          Learn more →
+          Read announcement →
         </a>
       </div>
     </div>
@@ -213,12 +217,12 @@
 
   <!-- WHY -->
   <div class="section">
-    <h2>Why this is interesting</h2>
+    <h2>Why this matters</h2>
     <ul>
-      <li>Works natively in the terminal</li>
-      <li>No browser required</li>
-      <li>Interactive and keyboard-driven</li>
-      <li>Feels natural for developers</li>
+      <li>Terminal-first workflows are becoming more common</li>
+      <li>AI coding agents operate better in CLI environments</li>
+      <li>Reduces context switching between browser and code</li>
+      <li>Documentation behaves like a real filesystem</li>
     </ul>
   </div>
 
@@ -226,18 +230,18 @@
   <div class="cta">
     <h2>Contribute</h2>
     <p>
-      Know a documentation experience available over SSH?
-      Share it and help expand this collection.
+      Know a documentation system accessible over SSH?
+      Help expand this collection by sharing it.
     </p>
 
     <a href="https://github.com/dnstld/docs-over-ssh/issues" target="_blank">
-      Submit documentation
+      Submit a project →
     </a>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    Focused on documentation only.
+    A snapshot of an emerging developer tooling pattern.
   </div>
 
 </div>
@@ -248,7 +252,6 @@
     navigator.clipboard.writeText(text);
   }
 
-  // typing animation
   const text = "ssh supabase.com";
   let i = 0;
 
