@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Documentation over SSH</title>
+  <title>Docs over SSH</title>
 
   <style>
     :root {
@@ -29,7 +29,7 @@
       padding: 40px 20px;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
       letter-spacing: -0.5px;
     }
 
@@ -38,18 +38,19 @@
       line-height: 1.6;
     }
 
+    /* HERO */
     .hero {
       text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 70px;
     }
 
     .hero h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
+      font-size: 52px;
+      margin-bottom: 10px;
     }
 
     .hero p {
-      max-width: 700px;
+      max-width: 720px;
       margin: auto;
     }
 
@@ -84,10 +85,12 @@
       color: var(--accent);
     }
 
+    /* SECTIONS */
     .section {
-      margin-bottom: 70px;
+      margin-bottom: 60px;
     }
 
+    /* CARD */
     .card {
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -96,30 +99,13 @@
       margin-top: 20px;
     }
 
-    .cmd {
-      margin-top: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: black;
-      padding: 10px;
-      border-radius: 8px;
-      font-family: monospace;
-      color: var(--accent);
-    }
-
-    button {
-      background: transparent;
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
       border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 6px;
-      padding: 4px 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.5);
     }
 
     a {
@@ -131,11 +117,15 @@
       text-decoration: underline;
     }
 
-    ul {
-      color: var(--muted);
-      padding-left: 18px;
+    /* FILTER BAR */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
+    /* CTA */
     .cta {
       margin-top: 40px;
       padding: 30px;
@@ -145,6 +135,7 @@
       background: linear-gradient(180deg, #020617, #0f172a);
     }
 
+    /* FOOTER */
     .footer {
       margin-top: 60px;
       text-align: center;
@@ -154,6 +145,7 @@
 
   </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -161,11 +153,14 @@
   <!-- HERO -->
   <div class="hero">
     <h1>Docs over SSH</h1>
+
     <p>
-      A curated collection of tools, experiments, and ideas where documentation is accessed directly through SSH instead of the browser.
+      A curated collection of documentation systems designed for AI agents and terminal-native workflows —
+      accessible directly over SSH instead of the browser.
     </p>
+
     <p style="margin-top: 10px;">
-      No browser. No dashboards. Just SSH, files, and terminal-native workflows.
+      Built for a world where AI coding agents, not humans, are the primary consumers of documentation.
     </p>
 
     <div class="terminal-hero">
@@ -181,48 +176,79 @@
   <!-- WHAT -->
   <div class="section">
     <h2>What is Docs over SSH?</h2>
+
     <p>
       Docs over SSH is an emerging pattern where documentation is exposed as a navigable filesystem over SSH instead of a traditional web interface.
     </p>
+
     <p>
-      Instead of browsing pages, you connect via your terminal and explore documentation using familiar commands like <code>ls</code>, <code>cat</code>, and <code>grep</code>.
+      It is especially useful for AI coding agents and CLI-first workflows, where tools need structured, scriptable access to documentation.
     </p>
+
     <p>
-      It turns documentation into something closer to a codebase — terminal-native, scriptable, and AI-agent friendly.
+      Instead of browsing pages, you explore documentation using terminal commands like <code>ls</code>, <code>cat</code>, and <code>grep</code>.
     </p>
   </div>
 
-  <!-- LIST -->
+  <!-- CATALOG -->
   <div class="section">
-    <h2>Notable implementations</h2>
+    <h2>Catalog</h2>
 
+    <p>
+      A curated index of SSH-accessible documentation systems optimized for AI agents and terminal-native workflows.
+    </p>
+
+    <!-- FILTER BAR (UI ONLY FOR NOW) -->
+    <div class="filter-bar">
+      <span class="tag">All</span>
+      <span class="tag">AI-agent</span>
+      <span class="tag">Terminal-native</span>
+      <span class="tag">Experimental</span>
+    </div>
+
+    <!-- CARD -->
     <div class="card">
-      <h3>Supabase</h3>
-      <p>
-        A public SSH-based documentation interface that lets you explore Supabase docs like a filesystem.
-      </p>
 
-      <div class="cmd">
-        <span id="cmd1">ssh supabase.com</span>
-        <button onclick="copy('cmd1')">Copy</button>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="margin:0;">Supabase</h3>
+
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <span class="tag">AI-agent</span>
+          <span class="tag">terminal-native</span>
+        </div>
       </div>
 
-      <div style="margin-top: 10px;">
+      <div style="color: var(--muted); font-family: monospace; margin-top: 6px;">
+        ssh supabase.sh
+      </div>
+
+      <p>
+        A public SSH server that exposes Supabase documentation as a filesystem-like interface,
+        designed for AI coding agents and terminal-first workflows.
+      </p>
+
+      <div style="margin-top: 12px; display: grid; gap: 6px;">
         <a href="https://supabase.com/blog/supabase-docs-over-ssh" target="_blank">
           Read announcement →
         </a>
+
+        <a href="https://github.com/supabase-community/supabase-ssh" target="_blank">
+          View GitHub repository →
+        </a>
       </div>
     </div>
+
   </div>
 
   <!-- WHY -->
   <div class="section">
     <h2>Why this matters</h2>
+
     <ul>
-      <li>Terminal-first workflows are becoming more common</li>
-      <li>AI coding agents operate better in CLI environments</li>
-      <li>Reduces context switching between browser and code</li>
-      <li>Documentation behaves like a real filesystem</li>
+      <li>Terminal-first workflows are becoming standard in modern development</li>
+      <li>AI coding agents operate more effectively in structured CLI environments</li>
+      <li>Reduces context switching between browser and code editor</li>
+      <li>Turns documentation into a programmable interface</li>
     </ul>
   </div>
 
@@ -231,7 +257,7 @@
     <h2>Contribute</h2>
     <p>
       Know a documentation system accessible over SSH?
-      Help expand this collection by sharing it.
+      Help expand this collection.
     </p>
 
     <a href="https://github.com/dnstld/docs-over-ssh/issues" target="_blank">
@@ -241,7 +267,7 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    A snapshot of an emerging developer tooling pattern.
+    A snapshot of an emerging AI-agent native documentation pattern.
   </div>
 
 </div>
@@ -252,7 +278,7 @@
     navigator.clipboard.writeText(text);
   }
 
-  const text = "ssh supabase.com";
+  const text = "ssh supabase.sh";
   let i = 0;
 
   function type() {
