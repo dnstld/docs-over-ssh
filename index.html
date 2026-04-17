@@ -28,23 +28,14 @@
       padding: 40px 20px;
     }
 
-    h1, h2, h3 {
-      letter-spacing: -0.5px;
+    h1 {
+      font-size: 42px;
+      margin: 0 0 8px;
     }
 
     p {
       color: var(--muted);
       line-height: 1.6;
-    }
-
-    /* HEADER */
-    .header {
-      margin-bottom: 25px;
-    }
-
-    .header h1 {
-      font-size: 42px;
-      margin: 0 0 8px;
     }
 
     /* TERMINAL */
@@ -88,7 +79,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
     }
 
     .tag {
@@ -122,9 +112,22 @@
       text-decoration: underline;
     }
 
+    /* CONTRIBUTION */
+    .contribute {
+      margin-top: 50px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(2, 6, 23, 0.6);
+    }
+
+    .contribute h2 {
+      margin-top: 0;
+    }
+
     /* FOOTER */
     .footer {
-      margin-top: 60px;
+      margin-top: 40px;
       text-align: center;
       font-size: 13px;
       color: var(--muted);
@@ -138,29 +141,27 @@
 <div class="container">
 
   <!-- HEADER -->
-  <div class="header">
-    <h1>Docs over SSH</h1>
-    <p>A registry of documentation systems accessible over SSH.</p>
+  <h1>Docs over SSH</h1>
+  <p>A registry of documentation systems accessible over SSH.</p>
 
-    <!-- TERMINAL -->
-    <div class="terminal">
-      <div class="terminal-bar">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
-      </div>
-      ssh supabase.sh
+  <!-- TERMINAL -->
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
     </div>
-
+    ssh supabase.sh
   </div>
 
-  <!-- ENTRY -->
+  <!-- CATALOG -->
+
   <div class="card">
 
     <div class="card-top">
       <h3 style="margin:0;">Supabase</h3>
 
-      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+      <div style="display:flex; gap:6px;">
         <span class="tag">AI</span>
         <span class="tag">docs</span>
         <span class="tag">terminal</span>
@@ -180,9 +181,33 @@
 
   </div>
 
+  <!-- CONTRIBUTION (BELOW LIST) -->
+  <div class="contribute">
+    <h2>Contribute</h2>
+
+    <p>
+      Know a documentation system accessible over SSH?
+      Add it to this registry.
+    </p>
+
+    <p>
+      Open an issue or submit a link with:
+    </p>
+
+    <p style="font-family: monospace; color: var(--accent);">
+      name + ssh endpoint + description + links
+    </p>
+
+    <div class="links">
+      <a href="https://github.com/dnstld/docs-over-ssh/issues" target="_blank">
+        Submit entry →
+      </a>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <div class="footer">
-    A curated index of SSH-accessible documentation endpoints.
+    A registry of SSH-accessible documentation endpoints.
   </div>
 
 </div>
