@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Docs over SSH</title>
+  <title>Documentation over SSH</title>
 
   <style>
     :root {
@@ -16,47 +16,28 @@
       --accent: #38bdf8;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, sans-serif;
       background: radial-gradient(circle at top, #0f172a, #020617);
       color: var(--text);
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 960px;
       margin: auto;
       padding: 40px 20px;
     }
 
-    /* NAV */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 60px;
-    }
-
-    .logo {
-      font-weight: 600;
+    h1, h2 {
       letter-spacing: -0.5px;
     }
 
-    .nav a {
+    p {
       color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
+      line-height: 1.6;
     }
 
-    .nav a:hover {
-      color: var(--text);
-    }
-
-    /* HERO */
     .hero {
       text-align: center;
       margin-bottom: 80px;
@@ -64,86 +45,44 @@
 
     .hero h1 {
       font-size: 48px;
-      margin-bottom: 16px;
-      letter-spacing: -1.5px;
+      margin-bottom: 12px;
     }
 
     .hero p {
-      font-size: 18px;
-      color: var(--muted);
       max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    /* TERMINAL */
-    .terminal-hero {
-      background: black;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .terminal-bar {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    .red { background: #ef4444; }
-    .yellow { background: #facc15; }
-    .green { background: #22c55e; }
-
-    .terminal-text {
-      font-family: monospace;
-      color: var(--accent);
-    }
-
-    /* GRID */
-    .grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      transition: all 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #334155;
-    }
-
-    .card h2 {
-      margin: 0 0 6px;
-      font-size: 20px;
-    }
-
-    .card p {
-      margin: 0 0 14px;
-      color: var(--muted);
+      margin: auto;
     }
 
     .terminal {
       background: black;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 12px;
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 24px;
+      font-family: monospace;
+      color: var(--accent);
+    }
+
+    .section {
+      margin-bottom: 70px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      background: var(--card);
+      margin-top: 20px;
+    }
+
+    .cmd {
+      margin-top: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: black;
+      padding: 10px;
+      border-radius: 8px;
       font-family: monospace;
       color: var(--accent);
     }
@@ -152,8 +91,8 @@
       background: transparent;
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 6px 10px;
       border-radius: 6px;
+      padding: 4px 8px;
       cursor: pointer;
     }
 
@@ -165,49 +104,31 @@
     a {
       color: var(--accent);
       text-decoration: none;
-      font-size: 14px;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    /* CTA */
+    ul {
+      color: var(--muted);
+      padding-left: 18px;
+    }
+
     .cta {
-      margin-top: 80px;
-      text-align: center;
-      padding: 40px;
+      margin-top: 40px;
+      padding: 30px;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
+      text-align: center;
       background: linear-gradient(180deg, #020617, #0f172a);
     }
 
-    .cta h2 {
-      margin-bottom: 10px;
-    }
-
-    .cta p {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .cta a {
-      border: 1px solid var(--accent);
-      padding: 10px 16px;
-      border-radius: 8px;
-    }
-
-    .cta a:hover {
-      background: var(--accent);
-      color: black;
-    }
-
-    /* FOOTER */
     .footer {
       margin-top: 60px;
       text-align: center;
+      font-size: 14px;
       color: var(--muted);
-      font-size: 13px;
     }
 
   </style>
@@ -216,64 +137,97 @@
 
 <div class="container">
 
-  <!-- NAV -->
-  <div class="nav">
-    <div class="logo">Docs over SSH</div>
-    <a href="https://github.com/dnstld/docs-over-ssh" target="_blank">
-      GitHub
-    </a>
-  </div>
-
   <!-- HERO -->
   <div class="hero">
-    <h1>Docs inside your terminal</h1>
+    <h1>Documentation over SSH</h1>
     <p>
-      A curated collection of tools, docs and experiences you can access via SSH.
+      A new way to explore developer documentation — directly from your terminal.
     </p>
 
-    <div class="terminal-hero">
-      <div class="terminal-bar">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
-      </div>
-      <div class="terminal-text" id="typing"></div>
+    <div class="terminal">
+      ssh supabase.com
     </div>
   </div>
 
-  <!-- GRID -->
-  <div class="grid">
+  <!-- WHAT -->
+  <div class="section">
+    <h2>What is this?</h2>
+    <p>
+      Some platforms are starting to expose their documentation through SSH.
+      Instead of opening a browser, you connect via your terminal and navigate
+      docs interactively — like a terminal UI.
+    </p>
+  </div>
+
+  <!-- FIRST EXAMPLE -->
+  <div class="section">
+    <h2>First real implementation</h2>
 
     <div class="card">
-      <h2>Supabase Docs</h2>
-      <p>Interactive documentation over SSH.</p>
+      <h3>Supabase</h3>
+      <p>
+        The first known platform to offer a full documentation experience over SSH.
+      </p>
 
-      <div class="terminal">
+      <div class="cmd">
         <span id="cmd1">ssh supabase.com</span>
         <button onclick="copy('cmd1')">Copy</button>
       </div>
 
       <div style="margin-top: 10px;">
         <a href="https://supabase.com/blog/supabase-docs-over-ssh" target="_blank">
-          Learn more →
+          Read announcement →
         </a>
       </div>
     </div>
+  </div>
 
+  <!-- WHY -->
+  <div class="section">
+    <h2>Why this is interesting</h2>
+    <ul>
+      <li>Works natively in the terminal</li>
+      <li>No browser required</li>
+      <li>Interactive and keyboard-driven</li>
+      <li>Feels natural for developers</li>
+      <li>Opens a new interface for documentation</li>
+    </ul>
+  </div>
+
+  <!-- BUILD -->
+  <div class="section">
+    <h2>Build your own</h2>
+    <p>
+      This pattern is just starting. You can build your own documentation over SSH
+      using tools like:
+    </p>
+
+    <ul>
+      <li>SSH servers (Node.js, Go)</li>
+      <li>Terminal UI frameworks</li>
+      <li>Libraries like Wish (Go)</li>
+    </ul>
+
+    <p>
+      This is an open space — there are no standards yet.
+    </p>
   </div>
 
   <!-- CTA -->
   <div class="cta">
-    <h2>Know a cool SSH project?</h2>
-    <p>Help grow this list by submitting one.</p>
+    <h2>Be one of the first</h2>
+    <p>
+      If you build a documentation experience over SSH, submit it and help define this new pattern.
+    </p>
+
     <a href="https://github.com/dnstld/docs-over-ssh/issues" target="_blank">
-      Submit a project
+      Submit your project
     </a>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    Built for developers who live in the terminal ⚡
+    Early exploration of a new developer interface.
   </div>
 
 </div>
@@ -283,20 +237,6 @@
     const text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text);
   }
-
-  // typing effect
-  const text = "ssh supabase.com";
-  let i = 0;
-
-  function type() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, 60);
-    }
-  }
-
-  type();
 </script>
 
 </body>
