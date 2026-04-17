@@ -1,204 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>Docs over SSH</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Docs over SSH</title>
 
-    <style>
-      :root {
-        --bg: #020617;
-        --card: #020617;
-        --border: #1e293b;
-        --text: #e2e8f0;
-        --muted: #94a3b8;
-        --accent: #38bdf8;
-      }
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0f172a;
+      --card: rgba(2, 6, 23, 0.85);
+      --border: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
 
-      * {
-        box-sizing: border-box;
-      }
+    * {
+      box-sizing: border-box;
+    }
 
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, sans-serif;
-        background: radial-gradient(circle at top, #0f172a, #020617);
-        color: var(--text);
-      }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: var(--text);
+    }
 
-      .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 40px 20px;
-      }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-      /* HERO */
-      .hero {
-        text-align: center;
-        margin-bottom: 60px;
-      }
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+    }
 
-      .hero h1 {
-        font-size: 42px;
-        margin-bottom: 16px;
-        letter-spacing: -1px;
-      }
+    .logo {
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
 
-      .hero p {
-        color: var(--muted);
-        font-size: 18px;
-        margin-bottom: 30px;
-      }
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-      .hero code {
-        display: inline-block;
-        background: #000;
-        border: 1px solid var(--border);
-        padding: 12px 16px;
-        border-radius: 10px;
-        font-size: 16px;
-        color: var(--accent);
-      }
+    .nav a:hover {
+      color: var(--text);
+    }
 
-      /* GRID */
-      .grid {
-        display: grid;
-        gap: 20px;
-      }
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 80px;
+    }
 
-      /* CARD */
-      .card {
-        background: rgba(2, 6, 23, 0.9);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px;
-        transition: all 0.2s ease;
-      }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+      letter-spacing: -1.5px;
+    }
 
-      .card:hover {
-        border-color: #334155;
-        transform: translateY(-2px);
-      }
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
 
-      .card h2 {
-        margin: 0 0 8px;
-        font-size: 20px;
-      }
+    /* TERMINAL */
+    .terminal-hero {
+      background: black;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
 
-      .card p {
-        margin: 0 0 14px;
-        color: var(--muted);
-      }
+    .terminal-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
 
-      .terminal {
-        background: #000;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 12px;
-        font-family: monospace;
-        color: var(--accent);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-      }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
 
-      .terminal span {
-        overflow-x: auto;
-      }
+    .red { background: #ef4444; }
+    .yellow { background: #facc15; }
+    .green { background: #22c55e; }
 
-      button {
-        background: transparent;
-        border: 1px solid var(--border);
-        color: var(--text);
-        padding: 6px 10px;
-        border-radius: 6px;
-        cursor: pointer;
-      }
+    .terminal-text {
+      font-family: monospace;
+      color: var(--accent);
+    }
 
-      button:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
+    /* GRID */
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
 
-      a {
-        color: var(--accent);
-        text-decoration: none;
-        font-size: 14px;
-      }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: all 0.2s ease;
+    }
 
-      a:hover {
-        text-decoration: underline;
-      }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #334155;
+    }
 
-      /* FOOTER */
-      .footer {
-        margin-top: 60px;
-        text-align: center;
-        color: var(--muted);
-        font-size: 14px;
-      }
+    .card h2 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
 
-      .footer a {
-        margin-left: 6px;
-      }
-    </style>
-  </head>
+    .card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
 
-  <body>
+    .terminal {
+      background: black;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: monospace;
+      color: var(--accent);
+    }
 
-    <div class="container">
+    button {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-      <!-- HERO -->
-      <div class="hero">
-        <h1>Docs over SSH</h1>
-        <p>Explore documentation you can access directly from your terminal.</p>
+    button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-        <code>ssh supabase.com</code>
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 80px;
+      text-align: center;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #020617, #0f172a);
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      border: 1px solid var(--accent);
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+
+    .cta a:hover {
+      background: var(--accent);
+      color: black;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="logo">Docs over SSH</div>
+    <a href="https://github.com/dnstld/docs-over-ssh" target="_blank">
+      GitHub
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Docs inside your terminal</h1>
+    <p>
+      A curated collection of tools, docs and experiences you can access via SSH.
+    </p>
+
+    <div class="terminal-hero">
+      <div class="terminal-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="terminal-text" id="typing"></div>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <div class="card">
+      <h2>Supabase Docs</h2>
+      <p>Interactive documentation over SSH.</p>
+
+      <div class="terminal">
+        <span id="cmd1">ssh supabase.com</span>
+        <button onclick="copy('cmd1')">Copy</button>
       </div>
 
-      <!-- LIST -->
-      <div class="grid">
-
-        <!-- CARD -->
-        <div class="card">
-          <h2>Supabase Docs</h2>
-          <p>Interactive documentation experience directly over SSH.</p>
-
-          <div class="terminal">
-            <span id="cmd1">ssh supabase.com</span>
-            <button onclick="copy('cmd1')">Copy</button>
-          </div>
-
-          <div style="margin-top: 10px;">
-            <a href="https://supabase.com/blog/supabase-docs-over-ssh" target="_blank">
-              Learn more →
-            </a>
-          </div>
-        </div>
-
-        <!-- ADD MORE CARDS HERE -->
-
+      <div style="margin-top: 10px;">
+        <a href="https://supabase.com/blog/supabase-docs-over-ssh" target="_blank">
+          Learn more →
+        </a>
       </div>
-
-      <!-- FOOTER -->
-      <div class="footer">
-        <p>
-          Want to add a project?
-          <a href="https://github.com/dnstld/docs-over-ssh/issues" target="_blank">
-            Submit it here
-          </a>
-        </p>
-      </div>
-
     </div>
 
-    <script>
-      function copy(id) {
-        const text = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(text);
-      }
-    </script>
-  </body>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Know a cool SSH project?</h2>
+    <p>Help grow this list by submitting one.</p>
+    <a href="https://github.com/dnstld/docs-over-ssh/issues" target="_blank">
+      Submit a project
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Built for developers who live in the terminal ⚡
+  </div>
+
+</div>
+
+<script>
+  function copy(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+  }
+
+  // typing effect
+  const text = "ssh supabase.com";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+
+  type();
+</script>
+
+</body>
 </html>
