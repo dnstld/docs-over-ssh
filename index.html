@@ -38,6 +38,7 @@
       line-height: 1.6;
     }
 
+    /* HERO */
     .hero {
       text-align: center;
       margin-bottom: 80px;
@@ -53,20 +54,44 @@
       margin: auto;
     }
 
-    .terminal {
+    /* TERMINAL HERO */
+    .terminal-hero {
       background: black;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      margin-top: 24px;
+      border-radius: 14px;
+      padding: 16px;
+      max-width: 600px;
+      margin: 24px auto 0;
+      text-align: left;
+    }
+
+    .terminal-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .red { background: #ef4444; }
+    .yellow { background: #facc15; }
+    .green { background: #22c55e; }
+
+    .terminal-text {
       font-family: monospace;
       color: var(--accent);
     }
 
+    /* SECTION */
     .section {
       margin-bottom: 70px;
     }
 
+    /* CARD */
     .card {
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -115,6 +140,7 @@
       padding-left: 18px;
     }
 
+    /* CTA */
     .cta {
       margin-top: 40px;
       padding: 30px;
@@ -124,6 +150,7 @@
       background: linear-gradient(180deg, #020617, #0f172a);
     }
 
+    /* FOOTER */
     .footer {
       margin-top: 60px;
       text-align: center;
@@ -144,8 +171,13 @@
       A new way to explore developer documentation — directly from your terminal.
     </p>
 
-    <div class="terminal">
-      ssh supabase.com
+    <div class="terminal-hero">
+      <div class="terminal-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="terminal-text" id="typing"></div>
     </div>
   </div>
 
@@ -153,21 +185,18 @@
   <div class="section">
     <h2>What is this?</h2>
     <p>
-      Some platforms are starting to expose their documentation through SSH.
-      Instead of opening a browser, you connect via your terminal and navigate
-      docs interactively — like a terminal UI.
+      Some platforms expose their documentation through SSH. Instead of opening a browser,
+      you connect via your terminal and navigate docs interactively.
     </p>
   </div>
 
-  <!-- FIRST EXAMPLE -->
+  <!-- LIST -->
   <div class="section">
-    <h2>First real implementation</h2>
+    <h2>Available documentation</h2>
 
     <div class="card">
       <h3>Supabase</h3>
-      <p>
-        The first known platform to offer a full documentation experience over SSH.
-      </p>
+      <p>Interactive documentation accessible over SSH.</p>
 
       <div class="cmd">
         <span id="cmd1">ssh supabase.com</span>
@@ -176,7 +205,7 @@
 
       <div style="margin-top: 10px;">
         <a href="https://supabase.com/blog/supabase-docs-over-ssh" target="_blank">
-          Read announcement →
+          Learn more →
         </a>
       </div>
     </div>
@@ -190,44 +219,25 @@
       <li>No browser required</li>
       <li>Interactive and keyboard-driven</li>
       <li>Feels natural for developers</li>
-      <li>Opens a new interface for documentation</li>
     </ul>
-  </div>
-
-  <!-- BUILD -->
-  <div class="section">
-    <h2>Build your own</h2>
-    <p>
-      This pattern is just starting. You can build your own documentation over SSH
-      using tools like:
-    </p>
-
-    <ul>
-      <li>SSH servers (Node.js, Go)</li>
-      <li>Terminal UI frameworks</li>
-      <li>Libraries like Wish (Go)</li>
-    </ul>
-
-    <p>
-      This is an open space — there are no standards yet.
-    </p>
   </div>
 
   <!-- CTA -->
   <div class="cta">
-    <h2>Be one of the first</h2>
+    <h2>Contribute</h2>
     <p>
-      If you build a documentation experience over SSH, submit it and help define this new pattern.
+      Know a documentation experience available over SSH?
+      Share it and help expand this collection.
     </p>
 
     <a href="https://github.com/dnstld/docs-over-ssh/issues" target="_blank">
-      Submit your project
+      Submit documentation
     </a>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    Early exploration of a new developer interface.
+    Focused on documentation only.
   </div>
 
 </div>
@@ -237,6 +247,20 @@
     const text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text);
   }
+
+  // typing animation
+  const text = "ssh supabase.com";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+
+  type();
 </script>
 
 </body>
